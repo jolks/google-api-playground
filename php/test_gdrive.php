@@ -11,8 +11,13 @@ $client = new Google_Client();
 
 // Get your credentials from the Google cloud console
 $client->setClientId('');
-$client->setClientSecret(''); 
-$client->setRedirectUri('http://www.indochili.com/test_gdrive.php');  // must redirect back to this script
+$client->setClientSecret('');
+
+// It is a must to redirect back to this script.
+// In your case, replace www.indochili.com to your own domain name.
+// On your server, put this script on e.g. /var/www (Apache) or /usr/share/nginx/www (Nginx) or etc.
+$client->setRedirectUri('http://www.indochili.com/test_gdrive.php');
+
 $client->setScopes(array('https://www.googleapis.com/auth/drive'));
 
 $service = new Google_DriveService($client);
